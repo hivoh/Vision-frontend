@@ -5,8 +5,12 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import ErrorPage from './pages/ErrorPage'
-// import ForgotPassword from './pages/auth/ForgotPassword'
-// import ResetPassword from './pages/auth/ResetPassword'
+import { Overview } from './pages/dashboard/Overview'
+import { Cameras } from './pages/dashboard/Cameras'
+import { Geofences } from './pages/dashboard/Geofences'
+import { Alerts } from './pages/dashboard/Alerts'
+import { Analytics } from './pages/dashboard/Analytics'
+import { Settings } from './pages/dashboard/Settings'
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -44,29 +48,39 @@ export const router = createBrowserRouter([
       </PublicRoute>
     )
   },
-  //{
-  //   path: '/forgot-password',
-  //   element: (
-  //     <PublicRoute>
-  //       <ForgotPassword />
-  //     </PublicRoute>
-  //   )
-  // },
-  // {
-  //   path: '/reset-password',
-  //   element: (
-  //     <PublicRoute>
-  //       <ResetPassword />
-  //     </PublicRoute>
-  //   )
-  // },
   {
     path: '/dashboard',
     element: (
       <ProtectedRoute>
         <Dashboard />
       </ProtectedRoute>
-    )
+    ),
+    children: [
+      {
+        index: true,
+        element: <Overview />
+      },
+      {
+        path: 'cameras',
+        element: <Cameras />
+      },
+      {
+        path: 'geofences',
+        element: <Geofences />
+      },
+      {
+        path: 'alerts',
+        element: <Alerts />
+      },
+      {
+        path: 'analytics',
+        element: <Analytics />
+      },
+      {
+        path: 'settings',
+        element: <Settings />
+      }
+    ]
   },
   {
     path: '*',

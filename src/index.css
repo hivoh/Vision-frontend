@@ -1,7 +1,21 @@
 @import "tailwindcss";
 
-
-
+@theme {
+  --color-primary-orange: #d2813d;
+  --color-primary-black: #292929;
+  
+  --color-dark-gray1: #282828;
+  --color-dark-gray2: #363636;
+  --color-dark-gray3: #828282;
+  --color-dark-gray4: #F0F0F0;
+  --color-dark-gray5: #F2F2F2;
+  --color-dark-gray6: #FFFFFF;
+  
+  --color-status-green: #27AE60;
+  --color-status-yellow: #F2C94C;
+  --color-status-red: #E85757;
+  --color-status-purple: #9E51E0;
+}
 
 
 /* Custom scrollbar */
