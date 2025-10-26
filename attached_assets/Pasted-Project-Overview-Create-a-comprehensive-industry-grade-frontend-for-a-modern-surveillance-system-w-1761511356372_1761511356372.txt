@@ -1,0 +1,226 @@
+Project Overview
+Create a comprehensive, industry-grade frontend for a modern surveillance system with real-time human detection, geofencing, and alert management capabilities. The application should feature a stunning landing page, secure authentication, and a professional dashboard for monitoring multiple CCTV feeds with interactive maps.
+
+Tech Stack Requirements
+Frontend Framework: React , vite
+
+Styling: Tailwind CSS 
+
+State Management: Redux Toolkit or Zustand
+
+Routing: React Router DOM
+
+Maps: Leaflet/React-Leaflet for geospatial visualization
+
+Charts: Recharts for analytics
+
+Forms: React Hook Form with Zod validation
+
+HTTP Client: Axios for API communication
+
+WebSocket: Native WebSocket API for real-time updates
+
+UI Components: Headless UI or Radix UI for accessibility
+
+Icons: Lucide React or Heroicons
+
+Notifications: React Hot Toast for user feedback
+
+Design System & Theme
+Based on the provided color palette:
+
+Color Scheme Implementation
+javascript
+const theme = {
+  primary: {
+    orange: '#d2813d',
+    black: '#292929'
+  },
+  dark: {
+    gray1: '#282828',
+    gray2: '#363636', 
+    gray3: '#828282',
+    gray4: '#F0F0F0', // Assuming FQEQEO was typo
+    gray5: '#F2F2F2',
+    gray6: '#FFFFFF'
+  },
+  status: {
+    green: '#27AE60',
+    yellow: '#F2C94C',
+    red: '#E85757',
+    purple: '#9E51E0'
+  }
+}
+Required Features & Pages
+1. Landing Page
+Hero Section: Modern, compelling introduction with system highlights
+
+Features Showcase: Cards highlighting real-time detection, geofencing, email alerts
+
+Demo Section: Interactive preview of dashboard functionality
+
+Testimonials: Client success stories (placeholder)
+
+Call-to-Action: Clear signup/login pathways
+
+Responsive Design: Mobile-first approach with elegant desktop experience
+
+2. Authentication System
+Login Page: Clean form with email/password, "Remember me" option
+
+Signup Page: Multi-step registration with email verification
+
+Password Recovery: Secure reset flow with email confirmation
+
+Session Management: JWT token handling with automatic refresh
+
+3. Professional Dashboard Layout
+text
+┌─────────────────────────────────────────────┐
+│ 🎯 Logo      Notifications 👤 User Menu     │
+├─────────────┬───────────────────────────────┤
+│             │                               │
+│   SIDEBAR   │         MAIN CONTENT          │
+│   NAV       │          + MAP VIEW           │
+│             │                               │
+│             │                               │
+└─────────────┴───────────────────────────────┘
+4. Core Dashboard Features
+Left Panel (Navigation & Controls)
+Camera Management
+
+Add new camera with form validation
+
+Camera list with status indicators (online/offline/processing)
+
+Quick actions (start/stop processing, edit settings)
+
+Bulk operations for multiple cameras
+
+Alert Configuration
+
+Email notification settings per camera
+
+Alert threshold configuration
+
+Geofence management interface
+
+Alert history with filtering
+
+Real-time Monitoring
+
+Live camera feed previews
+
+Detection statistics and analytics
+
+System health monitoring
+
+Active alerts panel
+
+Right Panel (Map & Visualization)
+Interactive Map
+
+Camera locations as custom markers
+
+Real-time human detection markers
+
+Geofence boundaries visualization
+
+Heat maps for detection density
+
+Zoom/pan controls with bounds
+
+Camera Feed Display
+
+Modal/panel for full-size camera view
+
+Detection overlays on video feed
+
+Historical playback controls
+
+Multi-camera view toggle
+
+5. Camera Management Features
+Add Camera Form
+typescript
+interface CameraFormData {
+  camera_id: string;
+  name: string;
+  description: string;
+  stream_url: string;
+  location: {
+    type: 'Point';
+    coordinates: [number, number];
+  };
+  calibration_points: Array<[number, number, number, number]>;
+  notification_emails: string[];
+  geofence_associations: string[];
+}
+Camera List View
+Search and filter functionality
+
+Sort by status, name, last activity
+
+Quick action buttons (start/stop/edit/delete)
+
+Status badges with color coding
+
+Pagination for large camera sets
+
+6. Alert & Notification System
+Email Management
+Add/remove notification emails per camera
+
+Email template customization
+
+Alert frequency controls
+
+Test email functionality
+
+Real-time Alert Display
+Toast notifications for new detections
+
+Alert history with severity indicators
+
+Bulk alert management
+
+Export alert reports
+
+7. User Profile & Settings
+Personal information management
+
+Notification preferences
+
+API key management (if needed)
+
+Usage analytics and reports
+
+Technical Requirements
+Performance Optimization
+Virtual scrolling for large camera lists
+
+Image lazy loading for camera feeds
+
+WebSocket connection management
+
+Efficient map rendering with clustering
+
+Code splitting for route-based chunks
+
+Security Implementation
+XSS protection for user inputs
+
+Secure authentication flow
+
+API request validation
+
+Secure WebSocket connections
+
+Environment variable management
+
+Responsive Design Breakpoints
+Mobile: < 768px
+
+Tablet: 768px - 1024px
+
+Desktop: > 1024px   
