@@ -49,7 +49,7 @@ const Landing = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-dark-gray1 to-dark-gray2 py-20">
+      <section className="relative bg-gradient-to-br from-dark-gray1 to-dark-gray2 py-40">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -67,7 +67,7 @@ const Landing = () => {
               >
                 Start Free Trial
               </Link>
-              <button className="border border-primary-orange text-primary-orange px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-orange hover:bg-opacity-10 transition flex items-center justify-center">
+              <button className="border border-primary-orange text-primary-orange px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-orange hover:text-orange-800 hover:bg-opacity-4 transition flex items-center justify-center">
                 <Play className="w-5 h-5 mr-2" />
                 Watch Demo
               </button>

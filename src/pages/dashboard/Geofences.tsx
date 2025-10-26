@@ -52,7 +52,7 @@ export const Geofences: React.FC = () => {
           <h1 className="text-3xl font-bold text-white mb-2">Geofence Management</h1>
           <p className="text-dark-gray4">Create and manage virtual boundaries for detection zones</p>
         </div>
-        <Button size="lg" className="w-full sm:w-auto">
+        <Button size="md" className="w-full sm:w-auto">
           <Plus className="w-5 h-5 mr-2" />
           Create Geofence
         </Button>

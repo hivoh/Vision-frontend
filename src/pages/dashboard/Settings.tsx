@@ -125,7 +125,7 @@ export const Settings: React.FC = () => {
       </div>
 
       <div className="flex justify-end">
-        <Button size="lg" onClick={handleSave}>
+        <Button size="md" onClick={handleSave}>
           <Save className="w-5 h-5 mr-2" />
           Save Changes
         </Button>

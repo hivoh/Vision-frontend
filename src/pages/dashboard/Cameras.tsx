@@ -81,7 +81,7 @@ export const Cameras: React.FC = () => {
           <h1 className="text-3xl font-bold text-white mb-2">Camera Management</h1>
           <p className="text-dark-gray4">Manage and monitor all your CCTV cameras</p>
         </div>
-        <Button size="lg" className="w-full sm:w-auto">
+        <Button size="md" className="w-full sm:w-auto">
           <Plus className="w-5 h-5 mr-2" />
           Add Camera
         </Button>
