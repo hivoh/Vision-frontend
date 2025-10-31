@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Eye, EyeOff, Shield, Mail, Lock } from 'lucide-react'
+import { Eye, EyeOff, VenetianMask, Mail, Lock } from 'lucide-react'
 import { loginStart, loginSuccess, loginFailure } from '../store/slices/authSlice'
 import toast from 'react-hot-toast'
 import { RootState } from '../store'
@@ -44,7 +44,7 @@ const Login: React.FC = () => {
     try {
       // Simulate API call
       setTimeout(() => {
-        if (formData.email === 'demo@securevision.com' && formData.password === 'password') {
+        if (formData.email === 'demo@vision.com' && formData.password === 'password') {
           const mockUser = {
             id: 1,
             name: 'Demo User',
@@ -73,8 +73,8 @@ const Login: React.FC = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
-            <Shield className="w-10 h-10 text-primary-orange" />
-            <span className="text-2xl font-bold text-white">SecureVision</span>
+            <VenetianMask className="w-10 h-10 text-primary-orange" />
+            <span className="text-2xl font-bold text-white">Vision</span>
           </div>
           <h2 className="text-3xl font-bold text-white">Sign in to your account</h2>
           <p className="mt-2 text-dark-gray4">
@@ -181,7 +181,7 @@ const Login: React.FC = () => {
           <div className="mt-6 p-4 bg-dark-gray1 rounded-lg border border-dark-gray3">
             <p className="text-sm text-dark-gray4 text-center">
               Demo credentials: <br />
-              <span className="text-primary-orange">demo@securevision.com</span> / <span className="text-primary-orange">password</span>
+              <span className="text-primary-orange">demo@vision.com</span> / <span className="text-primary-orange">password</span>
             </p>
           </div>
         </form>

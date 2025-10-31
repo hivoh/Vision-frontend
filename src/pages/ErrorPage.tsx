@@ -1,114 +1,121 @@
-import React from 'react'
-import { Link, useRouteError } from 'react-router-dom'
-import { Shield, Home, ArrowLeft } from 'lucide-react'
+import React, { useMemo } from "react";
+import { Link, useRouteError } from "react-router-dom";
 
 interface RouteError {
-  status?: number
+  status?: number;
   data?: {
-    message?: string
-  }
+    message?: string;
+  };
 }
 
 const ErrorPage: React.FC = () => {
-  const error = useRouteError() as RouteError
-  
-  const errorMessages = {
-    404: {
-      title: 'Page Not Found',
-      description: 'The page you are looking for does not exist or has been moved.',
-      emoji: '🔍'
-    },
-    500: {
-      title: 'Server Error',
-      description: 'Something went wrong on our servers. Please try again later.',
-      emoji: '🚧'
-    },
-    403: {
-      title: 'Access Denied',
-      description: 'You do not have permission to access this page.',
-      emoji: '🚫'
-    },
-    default: {
-      title: 'Unexpected Error',
-      description: 'An unexpected error has occurred. Please try again.',
-      emoji: '😵'
-    }
-  }
+  const error = useRouteError() as RouteError;
 
-  const getErrorDetails = (status?: number) => {
-    return status && status in errorMessages ? errorMessages[status as keyof typeof errorMessages] : errorMessages.default
-  }
+  const status = error?.status || 404;
+  const titleMap: Record<number, string> = {
+    404: "Page Not Found",
+    500: "Internal Server Error",
+    403: "Access Denied",
+  };
+  const title = titleMap[status] || "Unexpected Error";
 
-  const errorDetails = getErrorDetails(error?.status)
+  const messageMap: Record<number, string> = {
+    404: "The page you’re looking for doesn’t exist or has been moved.",
+    500: "Something went wrong on our servers. Please try again later.",
+    403: "You don’t have permission to view this page.",
+  };
+  const message = messageMap[status] || "An unexpected error occurred.";
+
+  // Gold dust particles (medium density)
+  const PARTICLE_COUNT = 150;
+  const particles = useMemo(() => {
+    return Array.from({ length: PARTICLE_COUNT }).map(() => {
+      return {
+        left: Math.random() * 100,
+        top: 10 + Math.random() * 80,
+        size: 2.5 + Math.random() * 4,
+        duration: 5 + Math.random() * 6,
+        delay: Math.random() * 4,
+        opacity: 0.12 + Math.random() * 40.5,
+        blur: 0,
+      };
+    });
+  }, []);
 
   return (
-    <div className="min-h-screen bg-dark-gray1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-lg w-full text-center">
-        {/* Error Icon */}
-        <div className="mb-8">
-          <div className="w-32 h-32 bg-dark-gray2 rounded-full flex items-center justify-center mx-auto border-4 border-dark-gray3">
-            <span className="text-4xl">{errorDetails.emoji}</span>
-          </div>
-        </div>
+    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-dark-gray1 text-dark-gray6 px-4 relative overflow-hidden">
+      {/* Gold Aura background (subtle) */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 top-1/3 pointer-events-none rounded-full"
+        style={{
+          width: 520,
+          height: 520,
+          filter: "blur(110px)",
+          background:
+            "radial-gradient(circle, rgba(234,88,12,0.14), rgba(234,88,12,0.06) 30%, transparent 55%)",
+          zIndex: 0,
+        }}
+        aria-hidden
+      />
 
-        {/* Error Content */}
-        <div className="bg-dark-gray2 p-8 rounded-xl border border-dark-gray3">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Shield className="w-8 h-8 text-primary-orange" />
-            <span className="text-2xl font-bold text-white">SecureVision</span>
-          </div>
+      {/* Gold dust particles */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        {particles.map((p, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              background:
+                "radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.45) 40%, rgba(234,88,12,0.08) 100%)",
+              opacity: p.opacity,
+              filter: `blur(${p.blur}px)`,
+              animation: `errorParticle ${p.duration}s linear ${p.delay}s infinite`,
+              zIndex: 0,
+            }}
+          />
+        ))}
+      </div>
 
-          <h1 className="text-6xl font-bold text-white mb-4">{error?.status || 'Error'}</h1>
-          <h2 className="text-2xl font-semibold text-white mb-4">{errorDetails.title}</h2>
-          <p className="text-dark-gray4 text-lg mb-6">{errorDetails.description}</p>
+      <div style={{ zIndex: 10 }}>
+        <h1 className="text-[90px] font-bold text-white leading-none">{status}</h1>
+        <h2 className="text-2xl font-semibold text-white mt-2">{title}</h2>
+        <p className="text-gray-400 mt-3 max-w-md mx-auto">{message}</p>
 
-          {error?.data?.message && (
-            <div className="bg-dark-gray1 p-4 rounded-lg border border-dark-gray3 mb-6">
-              <p className="text-status-red text-sm">{error.data.message}</p>
-            </div>
-          )}
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => window.history.back()}
-              className="flex items-center justify-center px-6 py-3 border border-dark-gray3 text-dark-gray4 rounded-lg hover:bg-dark-gray1 hover:text-white transition"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Go Back
-            </button>
-            <Link
-              to="/"
-              className="flex items-center justify-center px-6 py-3 bg-primary-orange text-white rounded-lg hover:bg-opacity-90 transition"
-            >
-              <Home className="w-5 h-5 mr-2" />
-              Home Page
-            </Link>
-          </div>
-
-          {/* Support Contact */}
-          <div className="mt-8 pt-6 border-t border-dark-gray3">
-            <p className="text-dark-gray4 text-sm">
-              Need help?{' '}
-              <a href="mailto:support@securevision.com" className="text-primary-orange hover:text-opacity-80">
-                Contact our support team
-              </a>
-            </p>
-          </div>
-        </div>
-
-        {/* Technical Details (Development) */}
-        {import.meta.env.DEV && error && (
-          <div className="mt-6 p-4 bg-dark-gray2 rounded-lg border border-status-red">
-            <h3 className="text-status-red font-semibold mb-2">Development Error Details:</h3>
-            <pre className="text-xs text-dark-gray4 overflow-auto">
-              {JSON.stringify(error, null, 2)}
-            </pre>
-          </div>
+        {error?.data?.message && (
+          <p className="text-sm text-gray-500 mt-3">{error.data.message}</p>
         )}
       </div>
-    </div>
-  )
-}
 
-export default ErrorPage
+      <Link
+        to="/"
+        className="mt-10 inline-block px-6 py-3 text-sm font-medium text-white bg-orange-600 hover:bg-orange-500 transition rounded"
+        style={{ zIndex: 10 }}
+      >
+        Go to Home
+      </Link>
+
+      {/* Scoped keyframes only for particles (kept local and minimal) */}
+      <style>
+        {`
+          @keyframes errorParticle {
+            0% { transform: translateX(0) scale(1); opacity: 0; }
+            6% { opacity: 0.7; }
+            50% { transform: translateX(28px) scale(1.02); opacity: 0.35; }
+            100% { transform: translateX(68px) scale(0.9); opacity: 0; }
+          }
+
+          /* responsive tweak so large status doesn't overflow small screens */
+          @media (max-width: 420px) {
+            .text-[90px] { font-size: 56px; }
+          }
+        `}
+      </style>
+    </div>
+  );
+};
+
+export default ErrorPage;

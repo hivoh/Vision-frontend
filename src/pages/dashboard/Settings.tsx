@@ -7,9 +7,9 @@ import toast from 'react-hot-toast'
 
 export const Settings: React.FC = () => {
   const [settings, setSettings] = useState({
-    companyName: 'SecureVision Inc.',
-    email: 'admin@securevision.com',
-    notificationEmail: 'alerts@securevision.com',
+    companyName: 'Vision Inc.',
+    email: 'admin@vision.com',
+    notificationEmail: 'alerts@vision.com',
     enableEmailAlerts: true,
     enablePushNotifications: true,
     detectionSensitivity: '75',

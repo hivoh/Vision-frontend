@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Eye, EyeOff, Shield, Mail, Lock, User, Building } from 'lucide-react'
+import { Eye, EyeOff, VenetianMask, Mail, Lock, User, Building } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 interface SignupFormData {
@@ -92,8 +92,8 @@ const Signup: React.FC = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
-            <Shield className="w-10 h-10 text-primary-orange" />
-            <span className="text-2xl font-bold text-white">SecureVision</span>
+            <VenetianMask className="w-10 h-10 text-primary-orange" />
+            <span className="text-2xl font-bold text-white">Vision</span>
           </div>
           <h2 className="text-3xl font-bold text-white">Create your account</h2>
           <p className="mt-2 text-dark-gray4">

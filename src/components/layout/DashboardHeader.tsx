@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bell, User, Menu, Shield } from 'lucide-react'
+import { Bell, User, Menu, VenetianMask } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 interface DashboardHeaderProps {
@@ -27,8 +27,8 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({ onMenuClick })
             </button>
             
             <div className="flex items-center space-x-2">
-              <Shield className="w-8 h-8 text-primary-orange" />
-              <span className="text-xl font-bold text-white hidden sm:block">SecureVision</span>
+              <VenetianMask className="w-8 h-8 text-primary-orange" />
+              <span className="text-xl font-bold text-white hidden sm:block">Vision</span>
             </div>
           </div>
 

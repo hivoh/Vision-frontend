@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-orange: #d2813d;
+  --color-primary-orange: #ea580c;
   --color-primary-black: #292929;
   
   --color-dark-gray1: #282828;
@@ -48,4 +48,108 @@
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  /* keep your existing variables, these are included for reference */
+  --color-primary-orange: #ea580c;
+  --color-primary-black: #292929;
+
+  --color-dark-gray1: #282828;
+  --color-dark-gray2: #363636;
+  --color-dark-gray3: #828282;
+  --color-dark-gray4: #F0F0F0;
+  --color-dark-gray5: #F2F2F2;
+  --color-dark-gray6: #FFFFFF;
+}
+
+/* Spotlight animation */
+@keyframes spotlight-move {
+  0% { background-position: 50% 40%; }
+  50% { background-position: 52% 46%; }
+  100% { background-position: 50% 40%; }
+}
+
+.hero-spotlight {
+  /* dark backdrop + soft orange spotlight (subtle) */
+  background-image:
+    radial-gradient(600px 300px at 50% 40%, rgba(234,88,12,0.08), transparent 25%),
+    linear-gradient(180deg, var(--color-dark-gray1) 0%, var(--color-dark-gray2) 100%);
+  background-repeat: no-repeat;
+  background-size: 120% 120%, cover;
+  animation: spotlight-move 12s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* particle base */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.35) 40%, rgba(234,88,12,0.05) 100%);
+  border-radius: 50%;
+  filter: blur(0.6px);
+  opacity: 0;
+  transform: translateY(20px) scale(0.7);
+  will-change: transform, opacity;
+}
+
+/* particle rise animation (each particle uses inline style for duration/delay/left/top) */
+@keyframes particle-rise {
+  0% {
+    transform: translateY(12px) scale(0.75);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-40px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* soft sheen line under headline */
+.headline-accent {
+  height: 3px;
+  width: 72px;
+  background: linear-gradient(90deg, rgba(234,88,12,1), rgba(234,88,12,0.4));
+  border-radius: 2px;
+  display: inline-block;
+  margin-top: 18px;
+}
+
+/* subtle glass for navbar on scroll effect (optional) */
+.nav-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  backdrop-filter: blur(4px);
+}
+
+/* Buttons: keep minimal rounding to match your app */
+.btn-primary {
+  background: var(--color-primary-orange);
+  color: #fff;
+}
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ececec;
+  background: transparent;
+}
+
+/* responsive hero padding */
+@media (min-width: 768px) {
+  .hero-padding {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+@media (max-width: 767px) {
+  .hero-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
 }
