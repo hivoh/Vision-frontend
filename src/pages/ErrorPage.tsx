@@ -27,7 +27,7 @@ const ErrorPage: React.FC = () => {
   const message = messageMap[status] || "An unexpected error occurred.";
 
   // Gold dust particles (medium density)
-  const PARTICLE_COUNT = 150;
+  const PARTICLE_COUNT = 60;
   const particles = useMemo(() => {
     return Array.from({ length: PARTICLE_COUNT }).map(() => {
       return {

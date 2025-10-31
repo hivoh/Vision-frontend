@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
 import { VenetianMask, Eye, MapPin, Bell, Play } from "lucide-react";
 import { motion } from "framer-motion";
+import GoldParticles from "../components/ui/GoldParticle"; 
 
-/**
- * Landing.tsx
- * - Particles in all sections now use the same gold-dust style + rise animation
- * - No text or size changes; only visual/animation updates to particles
- */
 
 const features = [
   {
@@ -38,7 +34,6 @@ const fadeUp = {
   })
 };
 
-const rand = (min: number, max: number) => Math.random() * (max - min) + min;
 
 const Landing = () => {
   return (
@@ -78,36 +73,22 @@ const Landing = () => {
           <div className="absolute w-[500px] h-[500px] bg-primary-orange/30 blur-[120px] rounded-full top-1/3 left-1/2 -translate-x-1/2" />
         </div>
 
-        {/* Gold Dust Particles (Hero - dense, fire-like rise) */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          {[...Array(80)].map((_, i) => {
-            const size = `${rand(2, 6)}px`;
-            const left = `${rand(0, 100)}%`;
-            const top = `${rand(0, 100)}%`;
-            const duration = `${rand(6, 11)}s`;
-            const delay = `${rand(0, 6)}s`;
-            const opacity = rand(0.18, 0.7);
-            const blur = `${rand(0.3, 1.6)}px`;
-            return (
-              <span
-                key={i}
-                style={{
-                  left,
-                  top,
-                  width: size,
-                  height: size,
-                  background:
-                    "radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.45) 40%, rgba(234,88,12,0.08) 100%)",
-                  opacity,
-                  filter: `blur(${blur})`,
-                  animation: `particleRise ${duration} linear ${delay} infinite`,
-                  borderRadius: "9999px",
-                }}
-                className="absolute"
-              />
-            );
-          })}
-        </div>
+        {/* Gold Dust Particles (Hero) - dense */}
+        <GoldParticles
+          count={100}
+          minSize={2}
+          maxSize={6}
+          minDuration={6}
+          maxDuration={15}
+          minDelay={0}
+          maxDelay={6}
+          minOpacity={0.18}
+          maxOpacity={0.7}
+          minBlur={0.3}
+          maxBlur={1.6}
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+          zIndex={0}
+        />
 
         <div className="relative z-10 text-center max-w-3xl pt-24">
           <h1 className="text-5xl md:text-6xl font-bold opacity-0 animate-[slideUp_0.8s_ease-out_forwards]">
@@ -147,36 +128,22 @@ const Landing = () => {
       {/* FEATURES */}
       <section id="features" className="py-28 bg-dark-gray2 relative overflow-hidden">
 
-        {/* Gold Dust Particles (sparser, same style as hero) */}
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          {[...Array(40)].map((_, i) => {
-            const size = `${rand(1.5, 4)}px`;
-            const left = `${rand(0, 100)}%`;
-            const top = `${rand(0, 100)}%`;
-            const duration = `${rand(6, 12)}s`;
-            const delay = `${rand(0, 6)}s`;
-            const opacity = rand(0.12, 0.45);
-            const blur = `${rand(0.2, 1.2)}px`;
-            return (
-              <span
-                key={i}
-                style={{
-                  left,
-                  top,
-                  width: size,
-                  height: size,
-                  background:
-                    "radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.45) 40%, rgba(234,88,12,0.08) 100%)",
-                  opacity,
-                  filter: `blur(${blur})`,
-                  animation: `particleRise ${duration} linear ${delay} infinite`,
-                  borderRadius: "9999px",
-                }}
-                className="absolute"
-              />
-            );
-          })}
-        </div>
+        {/* Gold Dust Particles (sparser) */}
+        <GoldParticles
+          count={40}
+          minSize={1.5}
+          maxSize={4}
+          minDuration={6}
+          maxDuration={12}
+          minDelay={0}
+          maxDelay={6}
+          minOpacity={0.12}
+          maxOpacity={0.45}
+          minBlur={0.2}
+          maxBlur={1.2}
+          className="pointer-events-none absolute inset-0"
+          zIndex={0}
+        />
 
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-4 text-dark-gray6">Key Features</h2>
@@ -209,36 +176,22 @@ const Landing = () => {
       {/* DEMO */}
       <section id="demo" className="py-28 bg-dark-gray1 relative overflow-hidden">
 
-        {/* Gold Dust Particles (demo - sparser) */}
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          {[...Array(200)].map((_, i) => {
-            const size = `${rand(1.2, 8)}px`;
-            const left = `${rand(0, 100)}%`;
-            const top = `${rand(0, 100)}%`;
-            const duration = `${rand(6, 12)}s`;
-            const delay = `${rand(0, 6)}s`;
-            const opacity = rand(0.11, 0.4);
-            const blur = `${rand(0.2, 1.1)}px`;
-            return (
-              <span
-                key={i}
-                style={{
-                  left,
-                  top,
-                  width: size,
-                  height: size,
-                  background:
-                    "radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.45) 40%, rgba(234,88,12,0.08) 100%)",
-                  opacity,
-                  filter: `blur(${blur})`,
-                  animation: `particleRise ${duration} linear ${delay} infinite`,
-                  borderRadius: "9999px",
-                }}
-                className="absolute"
-              />
-            );
-          })}
-        </div>
+        {/* Gold Dust Particles */}
+        <GoldParticles
+          count={200}
+          minSize={1.2}
+          maxSize={8}
+          minDuration={6}
+          maxDuration={12}
+          minDelay={0}
+          maxDelay={6}
+          minOpacity={0.11}
+          maxOpacity={0.4}
+          minBlur={0.2}
+          maxBlur={1.1}
+          className="pointer-events-none absolute inset-0"
+          zIndex={0}
+        />
 
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-4 text-dark-gray6">Interactive Dashboard</h2>
@@ -253,56 +206,60 @@ const Landing = () => {
             transition={{ duration: 0.6 }}
             className="bg-dark-gray2 rounded-2xl p-8 border border-dark-gray3 max-w-5xl mx-auto relative overflow-hidden group"
           >
-            {/* subtle shine sweep on hover (keeps gradient look subtle) */}
+            {/* subtle shine sweep on hover */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="opacity-0 group-hover:opacity-60 transition duration-700 absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent blur-xl" />
             </div>
 
-            <div className="aspect-video bg-dark-gray1 rounded-lg flex items-center justify-center border border-dark-gray2">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+            <div className="aspect-video bg-dark-gray1 rounded-lg flex items-center justify-center border border-dark-gray2 relative overflow-hidden">
+
+              {/* Placeholder image */}
+              <img
+                src="/demo3.png"
+                alt="Dashboard preview placeholder"
+                className="w-full h-full object-cover opacity-90"
+              />
+
+              {/*  video tag  */}
+              {/*
+                <video
+                  src="/demo-video.mp4"
+                  controls
+                  className="w-full h-full object-cover rounded-lg"
+                />
+                */}
+
+              {/* play icon overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-primary-orange rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition shadow-lg">
                   <Play className="w-8 h-8 text-dark-gray6" />
                 </div>
-                <p className="text-dark-gray4">View Dashboard Preview</p>
               </div>
             </div>
           </motion.div>
+
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-20 bg-transparent relative overflow-hidden">
 
-        {/* Gold Dust Particles (CTA - very sparse) */}
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          {[...Array(50)].map((_, i) => {
-            const size = `${rand(1.2, 8)}px`;
-            const left = `${rand(0, 100)}%`;
-            const top = `${rand(0, 100)}%`;
-            const duration = `${rand(6, 12)}s`;
-            const delay = `${rand(0, 6)}s`;
-            const opacity = rand(0.1, 0.35);
-            const blur = `${rand(0.2, 1)}px`;
-            return (
-              <span
-                key={i}
-                style={{
-                  left,
-                  top,
-                  width: size,
-                  height: size,
-                  background:
-                    "radial-gradient(circle, rgba(234,88,12,0.95) 0%, rgba(234,88,12,0.45) 40%, rgba(234,88,12,0.08) 100%)",
-                  opacity,
-                  filter: `blur(${blur})`,
-                  animation: `particleRise ${duration} linear ${delay} infinite`,
-                  borderRadius: "9999px",
-                }}
-                className="absolute"
-              />
-            );
-          })}
-        </div>
+        {/* Gold Dust Particles */}
+        <GoldParticles
+          count={100}
+          minSize={1.2}
+          maxSize={6}
+          minDuration={6}
+          maxDuration={12}
+          minDelay={0}
+          maxDelay={6}
+          minOpacity={0.1}
+          maxOpacity={0.35}
+          minBlur={0.2}
+          maxBlur={1}
+          className="pointer-events-none absolute inset-0"
+          zIndex={0}
+        />
 
         <div className="max-w-9xl mx-auto px-6">
           <motion.div
@@ -351,14 +308,6 @@ const Landing = () => {
           0% { transform: scaleX(0); opacity: 0.4; }
           50% { transform: scaleX(1); opacity: 1; }
           100% { transform: scaleX(0); opacity: 0.4; }
-        }
-
-        /* unified particle rise animation for consistent gold-dust feel */
-        @keyframes particleRise {
-          0% { transform: translateY(0px) scale(1); opacity: 0; }
-          8% { opacity: 0.7; }
-          45% { transform: translateY(-28px) scale(1.02); opacity: 0.35; }
-          100% { transform: translateY(-68px) scale(0.9); opacity: 0; }
         }
         `}
       </style>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, VenetianMask, Mail, Lock, User, Building } from 'lucide-react'
 import toast from 'react-hot-toast'
+import GoldParticles from '../components/ui/GoldParticle'
 
 interface SignupFormData {
   email: string
@@ -87,8 +88,9 @@ const Signup: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-gray1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="relative min-h-screen bg-dark-gray1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <GoldParticles />
+      <div className="max-w-md w-full space-y-8 relative z-10">
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
