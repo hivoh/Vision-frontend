@@ -5,12 +5,13 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import ErrorPage from './pages/ErrorPage'
-import { Overview } from './pages/dashboard/Overview'
+import Overview from './pages/dashboard/Overview'                                                                  
 import { Cameras } from './pages/dashboard/Cameras'
 import { Geofences } from './pages/dashboard/Geofences'
 import { Alerts } from './pages/dashboard/Alerts'
 import { Analytics } from './pages/dashboard/Analytics'
 import { Settings } from './pages/dashboard/Settings'
+import LiveMap from './pages/dashboard/LiveMap'
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path: 'settings',
         element: <Settings />
+      },
+      {
+        path: 'map',
+        element: <LiveMap/>
       }
     ]
   },

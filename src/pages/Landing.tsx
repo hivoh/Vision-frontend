@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { VenetianMask, Eye, MapPin, Bell, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import GoldParticles from "../components/ui/GoldParticle"; 
-
+import ThemeToggle from "../components/ui/ThemeToggle";
 
 const features = [
   {
@@ -54,6 +54,7 @@ const Landing = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
+            <ThemeToggle/>
             <Link to="/login" className="hover:text-primary-orange text-sm transition">Login</Link>
             <Link
               to="/signup"

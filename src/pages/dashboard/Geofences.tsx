@@ -49,7 +49,7 @@ export const Geofences: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Geofence Management</h1>
+          <h1 className="text-3xl font-bold text-dark-gray6 mb-2">Geofence Management</h1>
           <p className="text-dark-gray4">Create and manage virtual boundaries for detection zones</p>
         </div>
         <Button size="md" className="w-full sm:w-auto">
@@ -79,7 +79,7 @@ export const Geofences: React.FC = () => {
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{geofence.name}</h3>
+                  <h3 className="text-lg font-semibold text-dark-gray6 mb-1">{geofence.name}</h3>
                   <p className="text-dark-gray4 text-sm">{geofence.description}</p>
                 </div>
                 <Badge variant={geofence.status === 'active' ? 'success' : 'default'}>
@@ -90,7 +90,7 @@ export const Geofences: React.FC = () => {
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="bg-dark-gray1 rounded-lg p-3">
                   <p className="text-dark-gray4 text-sm mb-1">Cameras</p>
-                  <p className="text-2xl font-bold text-white">{geofence.cameras}</p>
+                  <p className="text-2xl font-bold text-dark-gray6">{geofence.cameras}</p>
                 </div>
                 <div className="bg-dark-gray1 rounded-lg p-3">
                   <p className="text-dark-gray4 text-sm mb-1">Alerts</p>

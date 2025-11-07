@@ -89,7 +89,7 @@ export const Alerts: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Alert Management</h1>
+          <h1 className="text-3xl font-bold text-dark-gray6 mb-2">Alert Management</h1>
           <p className="text-dark-gray4">Monitor and manage system alerts</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ export const Alerts: React.FC = () => {
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-lg font-semibold text-white">{alert.camera}</h3>
+                        <h3 className="text-lg font-semibold text-dark-gray6">{alert.camera}</h3>
                         {getSeverityBadge(alert.severity)}
                       </div>
                       <p className="text-dark-gray4">{alert.message}</p>

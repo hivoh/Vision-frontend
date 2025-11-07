@@ -6,7 +6,7 @@ export const Analytics: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Analytics</h1>
+        <h1 className="text-3xl font-bold text-dark-gray6 mb-2">Analytics</h1>
         <p className="text-dark-gray4">View detailed analytics and insights</p>
       </div>
 
@@ -16,7 +16,7 @@ export const Analytics: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-dark-gray4 text-sm mb-1">Detection Rate</p>
-                <p className="text-3xl font-bold text-white">94.5%</p>
+                <p className="text-3xl font-bold text-dark-gray6">94.5%</p>
                 <p className="text-status-green text-sm flex items-center mt-1">
                   <TrendingUp className="w-4 h-4 mr-1" />
                   +5.2% this week
@@ -34,7 +34,7 @@ export const Analytics: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-dark-gray4 text-sm mb-1">Avg Response Time</p>
-                <p className="text-3xl font-bold text-white">1.2s</p>
+                <p className="text-3xl font-bold text-dark-gray6">1.2s</p>
                 <p className="text-status-green text-sm flex items-center mt-1">
                   <TrendingDown className="w-4 h-4 mr-1" />
                   -0.3s improvement
@@ -52,7 +52,7 @@ export const Analytics: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-dark-gray4 text-sm mb-1">False Positives</p>
-                <p className="text-3xl font-bold text-white">2.1%</p>
+                <p className="text-3xl font-bold text-dark-gray6">2.1%</p>
                 <p className="text-status-red text-sm flex items-center mt-1">
                   <TrendingUp className="w-4 h-4 mr-1" />
                   +0.5% this week

@@ -77,9 +77,9 @@ const Login: React.FC = () => {
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
             <VenetianMask className="w-10 h-10 text-primary-orange" />
-            <span className="text-2xl font-bold text-white">Vision</span>
+            <span className="text-2xl font-bold text-dark-gray6">Vision</span>
           </div>
-          <h2 className="text-3xl font-bold text-white">Sign in to your account</h2>
+          <h2 className="text-3xl font-bold text-dark-gray6">Sign in to your account</h2>
           <p className="mt-2 text-dark-gray4">
             Or{' '}
             <Link to="/signup" className="text-primary-orange hover:text-opacity-80">
@@ -91,7 +91,7 @@ const Login: React.FC = () => {
         {/* Login Form */}
         <form className="mt-8 space-y-6 bg-dark-gray2 p-8 rounded-xl border border-dark-gray3" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-status-red bg-opacity-20 border border-status-red text-white px-4 py-3 rounded-lg">
+            <div className="bg-status-red bg-opacity-20 border border-status-red text-dark-gray6 px-4 py-3 rounded-lg">
               {error}
             </div>
           )}
@@ -112,7 +112,7 @@ const Login: React.FC = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                   placeholder="Enter your email"
                 />
               </div>
@@ -133,13 +133,13 @@ const Login: React.FC = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                  className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-dark-gray6"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -172,7 +172,7 @@ const Login: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary-orange text-white py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full bg-primary-orange text-dark-gray6 py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
           >
             {isLoading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>

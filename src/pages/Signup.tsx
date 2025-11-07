@@ -94,10 +94,11 @@ const Signup: React.FC = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
+            
             <VenetianMask className="w-10 h-10 text-primary-orange" />
-            <span className="text-2xl font-bold text-white">Vision</span>
+            <span className="text-2xl font-bold text-dark-gray6">Vision</span>
           </div>
-          <h2 className="text-3xl font-bold text-white">Create your account</h2>
+          <h2 className="text-3xl font-bold text-dark-gray6">Create your account</h2>
           <p className="mt-2 text-dark-gray4">
             Or{' '}
             <Link to="/login" className="text-primary-orange hover:text-opacity-80">
@@ -112,7 +113,7 @@ const Signup: React.FC = () => {
             <React.Fragment key={stepNumber}>
               <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${
                 step >= stepNumber 
-                  ? 'bg-primary-orange border-primary-orange text-white' 
+                  ? 'bg-primary-orange border-primary-orange text-dark-gray6' 
                   : 'border-dark-gray3 text-dark-gray3'
               }`}>
                 {stepNumber}
@@ -144,7 +145,7 @@ const Signup: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                    className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -164,13 +165,13 @@ const Signup: React.FC = () => {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                    className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                     placeholder="Create a password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-white"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-dark-gray6"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -194,13 +195,13 @@ const Signup: React.FC = () => {
                     required
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                    className="w-full pl-10 pr-12 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                     placeholder="Confirm your password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-white"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-dark-gray3 hover:text-dark-gray6"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -210,7 +211,7 @@ const Signup: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="w-full bg-primary-orange text-white py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition mt-6"
+                className="w-full bg-primary-orange text-dark-gray6 py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition mt-6"
               >
                 Continue
               </button>
@@ -234,7 +235,7 @@ const Signup: React.FC = () => {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                      className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                       placeholder="First name"
                     />
                   </div>
@@ -254,7 +255,7 @@ const Signup: React.FC = () => {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                      className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                       placeholder="Last name"
                     />
                   </div>
@@ -274,7 +275,7 @@ const Signup: React.FC = () => {
                     autoComplete="organization"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-white placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
+                    className="w-full pl-10 pr-4 py-3 bg-dark-gray1 border border-dark-gray3 rounded-lg text-dark-gray6 placeholder-dark-gray3 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange"
                     placeholder="Your company"
                   />
                 </div>
@@ -305,13 +306,13 @@ const Signup: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="flex-1 bg-dark-gray1 text-white py-3 px-4 rounded-lg font-semibold hover:bg-opacity-80 transition border border-dark-gray3"
+                  className="flex-1 bg-dark-gray1 text-dark-gray6 py-3 px-4 rounded-lg font-semibold hover:bg-opacity-80 transition border border-dark-gray3"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-primary-orange text-white py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition"
+                  className="flex-1 bg-primary-orange text-dark-gray6 py-3 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition"
                 >
                   Create Account
                 </button>
